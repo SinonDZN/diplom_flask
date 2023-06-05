@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Личный кабинет
+{% endblock %}
+{% block body %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/adaptive.css') }}">
+<div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+        <h3 class="text" style="font-size: 45px">Все заказы на сайте</h3>
+    </div>
+</div>
+<div class="container-fluid" style="width: 1280px">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Почта</th>
+            <th scope="col">Адрес</th>
+            <th scope="col">Дом</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Сумма</th>
+            <th scope="col">Товары</th>
+        </tr>
+        </thead>
+        {% for el in lol %}
+            <tbody>
+            <tr>
+                <th scope="row">{{ el.name }}</th>
+                <td>{{ el.surname }}</td>
+                <td>{{ el.phone }}</td>
+                <td>{{ el.email }}</td>
+                <td>{{ el.adress }}</td>
+                <td>{{ el.house }}</td>
+                <td>{{ el.date }}</td>
+                <td>{{ el.total }}</td>
+                <td>{{ el.goods }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
